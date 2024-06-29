@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-ULTRALIGHT';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ ULTRALIGHT.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-LIGHT';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ LIGHT.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-REGULAR';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ REGULAR.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-MEDIUM';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ MEDIUM.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-HEAVY';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ HEAVY.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-BOLD';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ BOLD.otf');
+    }
+
+    @font-face {
+        font-family: 'DIN-NEXT-ARABIC-BLACK';
+        src: url('../../public/fonts/DIN\ NEXT™\ ARABIC\ BLACK.otf');
+    }
+
+    @font-face {
+        font-family: 'Maa-Aldahab';
+        src: url('../../public/fonts/MaaAldahab-Bold.otf');
+    }
+}
