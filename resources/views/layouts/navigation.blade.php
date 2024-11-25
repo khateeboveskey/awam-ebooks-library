@@ -1,11 +1,11 @@
 <!-- Navigation Component -->
-<nav x-data="{ open: false }"
-    class="rounded-b-2xl border-b border-primary-100 bg-white px-5 pb-2 dark:border-primary-700 dark:bg-primary-900 sm:pb-0 lg:px-44">
+<nav id="mainNav" x-data="{ open: false }"
+    class="fixed left-0 right-0 top-0 z-50 rounded-b-2xl border-primary-100 bg-white px-5 pb-2 transition-transform duration-300 dark:border-primary-700 dark:bg-primary-900 sm:pb-0 lg:px-44">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl">
         <div class="flex h-16 justify-between">
             <!-- Left Side Navigation -->
-            <div class="flex flex-1">
+            <div class="flex flex-1 justify-center">
                 <!-- Logo -->
                 <div class="flex shrink-0 items-center">
                     <a href="{{ route('home') }}">
@@ -14,7 +14,7 @@
                 </div>
 
                 <!-- Desktop Navigation Links -->
-                <div class="hidden flex-1 justify-center gap-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden flex-1 justify-center gap-x-8 sm:-my-px sm:flex">
                     @php
                         $navigationLinks = [
                             ['route' => 'home', 'text' => 'الرئيسية'],
@@ -124,6 +124,8 @@
     </div>
 </nav>
 
+<div class="h-16"></div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const elements = {
@@ -147,6 +149,26 @@
         elements.menuToggle.addEventListener('click', () => {
             isMenuOpen = !isMenuOpen;
             toggleMenu(isMenuOpen);
+        });
+
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                elements.nav.classList.remove('-translate-y-full');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !elements.nav.classList.contains(
+                    '-translate-y-full')) {
+                // Scrolling down
+                elements.nav.classList.add('-translate-y-full');
+            } else if (currentScroll < lastScroll && elements.nav.classList
+                .contains('-translate-y-full')) {
+                // Scrolling up
+                elements.nav.classList.remove('-translate-y-full');
+            }
+            lastScroll = currentScroll;
         });
     });
 </script>
