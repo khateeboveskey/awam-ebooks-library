@@ -13,10 +13,9 @@
 </head>
 
 <body class="font-din-medium">
-    {{-- @include('layouts.navigation') --}}
-    <x-nav />
+    @include('layouts.navigation')
     <!-- Page Content -->
-    <main class="px-5 lg:px-44 pt-5">
+    <main class="px-5 pt-5 lg:px-44">
         {{ $slot }}
     </main>
 </body>
