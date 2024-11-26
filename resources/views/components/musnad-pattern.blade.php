@@ -1,5 +1,5 @@
 <div
-    class="mt-10 grid w-full select-none grid-flow-col grid-rows-4 gap-2 text-center font-musnad text-lg text-primary-400/40 [mask-image:linear-gradient(to_bottom,transparent,black_100%)] sm:gap-4 sm:text-sm md:mt-28 md:gap-10 md:text-4xl">
+    class="mt-10 grid w-full select-none grid-flow-col grid-rows-4 gap-2 overflow-hidden text-center font-musnad text-lg text-primary-400/40 [mask-image:linear-gradient(to_bottom,transparent,black_100%)] sm:gap-4 sm:text-sm md:mt-28 md:gap-10 md:text-4xl">
 </div>
 
 <script>

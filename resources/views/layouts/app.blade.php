@@ -21,7 +21,7 @@
     @include('layouts.navigation')
     <!-- Page Content -->
     <main>
-        {{ $slot }}
+        @yield('content')
     </main>
     @include('layouts.footer')
 </body>

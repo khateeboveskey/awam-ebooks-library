@@ -1,4 +1,4 @@
-<footer class="bg-primary-100 dark:bg-primary-900 rounded-t-2xl">
+<footer class="rounded-t-2xl bg-primary-100 dark:bg-primary-900">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-8 text-primary-900 dark:text-white md:grid-cols-3">
             <div>
@@ -12,7 +12,7 @@
                     <li><a href="#"
                             class="text-sm text-primary-400 transition hover:text-primary-500">الرئيسية</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{{ route('books.index') }}"
                             class="text-sm text-primary-400 transition hover:text-primary-500">تصفح
                             الكتب</a></li>
                     <li><a href="#"

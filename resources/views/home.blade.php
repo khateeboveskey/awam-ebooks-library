@@ -1,4 +1,6 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('content')
     <x-hero />
     <br>
     <br>
@@ -34,4 +36,4 @@
     <br>
     <br>
     <br>
-</x-app-layout>
+@endsection
