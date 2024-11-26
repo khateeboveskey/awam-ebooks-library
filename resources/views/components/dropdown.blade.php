@@ -30,7 +30,7 @@
         {{ $trigger }}
     </div>
 
-    <div class="dropdown-content {{ $width }} {{ $alignmentClasses }} absolute z-50 mt-2 hidden rounded-md shadow-lg"
+    <div class="dropdown-content {{ $width }} {{ $alignmentClasses }} absolute z-50 mt-2 scale-95 transform rounded-md opacity-0 shadow-lg transition-all duration-200"
         style="display: none;">
         <div class="{{ $contentClasses }} rounded-md ring-1 ring-black ring-opacity-5">
             {{ $content }}
@@ -47,16 +47,37 @@
             const content = container.querySelector('.dropdown-content');
 
             trigger.addEventListener('click', () => {
-                // Toggle visibility of the dropdown
-                content.style.display = content.style.display === 'none' ||
-                    content.style.display === '' ?
-                    'block' :
-                    'none';
+
+
+
+
+
+                if (content.style.display === 'none' || content.style
+                    .display === '') {
+                    content.style.display = 'block';
+                    setTimeout(() => {
+                        content.classList.remove('opacity-0',
+                            'scale-95');
+                        content.classList.add('opacity-100',
+                            'scale-100');
+                    }, 10);
+                } else {
+                    content.classList.remove('opacity-100', 'scale-100');
+                    content.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                    }, 200);
+                }
             });
 
             document.addEventListener('click', (event) => {
                 if (!container.contains(event.target)) {
-                    content.style.display = 'none';
+
+                    content.classList.remove('opacity-100', 'scale-100');
+                    content.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                    }, 200);
                 }
             });
         });
