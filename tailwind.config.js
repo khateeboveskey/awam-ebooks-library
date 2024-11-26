@@ -27,6 +27,7 @@ export default {
                 },
             },
             fontFamily: {
+                'musnad': ['Noto Sans Old South Arabian'],
                 'din-ultralight': ['DIN-NEXT-ARABIC-ULTRALIGHT'],
                 'din-regular': ['DIN-NEXT-ARABIC-REGULAR'],
                 'din-medium': ['DIN-NEXT-ARABIC-MEDIUM'],

@@ -42,4 +42,9 @@
         font-family: 'Maa-Aldahab';
         src: url('../../public/fonts/MaaAldahab-Bold.otf');
     }
+
+    @font-face {
+        font-family: 'Noto Sans Old South Arabian';
+        src: url('../../public/fonts/NotoSansOldSouthArabian-Regular.ttf');
+    }
 }

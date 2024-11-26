@@ -47,11 +47,6 @@
             const content = container.querySelector('.dropdown-content');
 
             trigger.addEventListener('click', () => {
-
-
-
-
-
                 if (content.style.display === 'none' || content.style
                     .display === '') {
                     content.style.display = 'block';
@@ -72,7 +67,6 @@
 
             document.addEventListener('click', (event) => {
                 if (!container.contains(event.target)) {
-
                     content.classList.remove('opacity-100', 'scale-100');
                     content.classList.add('opacity-0', 'scale-95');
                     setTimeout(() => {
