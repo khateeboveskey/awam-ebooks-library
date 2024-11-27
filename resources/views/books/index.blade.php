@@ -24,7 +24,7 @@
                                     <a href="{{ route('books.show', $book) }}"
                                         class="overflow-hidden rounded-lg border bg-white shadow transition-all hover:shadow-lg">
                                         <div class="aspect-w-2 aspect-h-3 bg-gray-200">
-                                            <img src="https://via.placeholder.com/150x250"
+                                            <img src="{{ asset('imgs/books-covers/' . $book->id . '.' . (file_exists(public_path('imgs/books-covers/' . $book->id . '.png')) ? 'png' : 'jpg')) }}"
                                                 alt="{{ $book->title }}" class="object-cover">
                                         </div>
                                         <div class="p-3">

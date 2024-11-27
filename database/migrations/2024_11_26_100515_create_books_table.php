@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('author');
+            $table->string('description');
             $table->integer('year_published');
             $table->timestamps();
         });

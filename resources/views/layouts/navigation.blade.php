@@ -66,12 +66,12 @@
                 @guest
                     <div class="flex flex-row gap-x-3">
                         <a href="{{ route('login') }}"
-                            class="rounded-lg border border-white px-4 py-1.5 text-white">تسجيل
+                            class="rounded-lg border border-primary-400 px-4 py-1.5 text-primary-500 transition duration-150 ease-in-out hover:bg-primary-50 hover:text-primary-600 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900 dark:hover:text-primary-300">تسجيل
                             الدخول</a>
-                        <a href="{{ route('register') }}" class="rounded-lg bg-white px-4 py-1.5">إنشاء
+                        <a href="{{ route('register') }}"
+                            class="rounded-lg bg-primary-500 px-4 py-1.5 text-white transition duration-150 ease-in-out hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700">إنشاء
                             حساب</a>
-                    </div>
-                @endguest
+                </div> @endguest
             </div>
 
             <!-- Mobile Menu Button -->
@@ -91,7 +91,18 @@
 
     <!-- Mobile Navigation Menu -->
     <div id="responsiveMenu"
-        class="fixed left-0 right-0 top-16 z-50 hidden rounded-b-2xl bg-white shadow-lg dark:bg-primary-900">
+        class="fixed left-0 right-0 top-16 z-50 hidden transform rounded-b-2xl bg-white shadow-lg transition-all duration-300 ease-in-out dark:bg-primary-900">
+        <!-- Mobile Navigation Links -->
+        <div class="space-y-1 pb-3 pt-2">
+            @foreach ($navigationLinks as $link)
+                <x-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
+                    {{ $link['text'] }}
+                </x-responsive-nav-link>
+            @endforeach
+        </div>
+
+        <hr class="mx-4 border-primary-200 dark:border-primary-700">
+
         @guest
             <div class="space-y-1 pb-3 pt-2">
                 <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">تسجيل
@@ -143,6 +154,17 @@
             elements.menuClose.classList.toggle('hidden', !isOpen);
             elements.menuClose.classList.toggle('inline-flex', isOpen);
             elements.responsiveMenu.classList.toggle('hidden', !isOpen);
+
+            // Add slide animation
+            if (isOpen) {
+                elements.responsiveMenu.classList.add('translate-y-0', 'opacity-100');
+                elements.responsiveMenu.classList.remove('-translate-y-10',
+                    'opacity-0');
+            } else {
+                elements.responsiveMenu.classList.add('-translate-y-10', 'opacity-0');
+                elements.responsiveMenu.classList.remove('translate-y-0',
+                    'opacity-100');
+            }
         };
 
         let isMenuOpen = false;
