@@ -17,7 +17,8 @@
                             <div class="space-y-6">
                                 <div class="rounded-lg bg-gray-50 p-4 transition-colors duration-200">
                                     <h4 class="mb-2 text-xl font-semibold text-gray-900">المؤلف</h4>
-                                    <p class="text-lg text-gray-700">{{ $book->author }}</p>
+                                    <p class="text-lg text-gray-700">
+                                        {{ $book->authors->pluck('name')->join(' و') }}</p>
                                 </div>
                                 <div class="rounded-lg bg-gray-50 p-4 transition-colors duration-200">
                                     <h4 class="mb-2 text-xl font-semibold text-gray-900">سنة النشر</h4>

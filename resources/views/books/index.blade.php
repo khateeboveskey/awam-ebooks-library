@@ -32,7 +32,7 @@
                                                 class="mb-1 text-center text-lg font-semibold text-gray-900">
                                                 {{ $book->title }}</h3>
                                             <p class="text-center text-xs text-gray-600">
-                                                {{ $book->author }}</p>
+                                                {{ $book->authors->pluck('name')->join(' و') }}</p>
                                             <p class="mt-1 text-center text-xs text-gray-500">
                                                 {{ $book->year_published }}</p>
                                         </div>
