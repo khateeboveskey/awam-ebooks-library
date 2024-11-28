@@ -18,6 +18,9 @@
                     <li><a href="#"
                             class="text-sm text-primary-400 transition hover:text-primary-500">الأقسام</a>
                     </li>
+                    <li><a href="{{ route('authors.index') }}"
+                            class="text-sm text-primary-400 transition hover:text-primary-500">أشهر
+                            المؤلفون</a></li>
                     <li><a href="#"
                             class="text-sm text-primary-400 transition hover:text-primary-500">تواصل
                             معنا</a></li>

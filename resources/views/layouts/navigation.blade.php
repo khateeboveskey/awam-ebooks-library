@@ -20,7 +20,7 @@
                             ['route' => 'home', 'text' => 'الرئيسية'],
                             ['route' => 'books.index', 'text' => 'أشهر الكتب'],
                             ['route' => 'dashboard', 'text' => 'الأقسام'],
-                            ['route' => 'dashboard', 'text' => 'المؤلفون'],
+                            ['route' => 'authors.index', 'text' => 'المؤلفون'],
                         ];
                     @endphp
 

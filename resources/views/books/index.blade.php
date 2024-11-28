@@ -16,28 +16,9 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-
                         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                             @forelse ($books as $book)
-                                <div
-                                    class="overflow-hidden rounded-lg border bg-white shadow transition-all hover:shadow-lg">
-                                    <a href="{{ route('books.show', $book) }}"
-                                        class="overflow-hidden rounded-lg border bg-white shadow transition-all hover:shadow-lg">
-                                        <div class="aspect-w-2 aspect-h-3 bg-gray-200">
-                                            <img src="{{ asset('imgs/books-covers/' . $book->id . '.' . (file_exists(public_path('imgs/books-covers/' . $book->id . '.png')) ? 'png' : 'jpg')) }}"
-                                                alt="{{ $book->title }}" class="object-cover">
-                                        </div>
-                                        <div class="p-3">
-                                            <h3
-                                                class="mb-1 text-center text-lg font-semibold text-gray-900">
-                                                {{ $book->title }}</h3>
-                                            <p class="text-center text-xs text-gray-600">
-                                                {{ $book->authors->pluck('name')->join(' و') }}</p>
-                                            <p class="mt-1 text-center text-xs text-gray-500">
-                                                {{ $book->year_published }}</p>
-                                        </div>
-                                    </a>
-                                </div>
+                                <x-book.card :book="$book" />
                             @empty
                                 <div class="col-span-full text-center text-gray-500">
                                     لا يوجد كتب
