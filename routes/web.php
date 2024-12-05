@@ -3,14 +3,15 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home')->name('home');
-
-// Route::get('/books', [BookController::class, 'index'])->name('books');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => '/books'], function () {
     Route::get('/', [BookController::class, 'index'])->name('books.index');
+    Route::get('/create', [BookController::class, 'create'])->name('books.create');
+    Route::post('/', [BookController::class, 'store'])->name('books.store');
     Route::get('/{book}', [BookController::class, 'show'])->name('books.show');
 });
 

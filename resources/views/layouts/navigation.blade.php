@@ -1,3 +1,22 @@
+@php
+    $navigationLinks = [
+        ['route' => 'home', 'text' => 'الرئيسية'],
+        ['route' => 'books.index', 'text' => 'أشهر الكتب'],
+        ['route' => 'dashboard', 'text' => 'الأقسام'],
+        ['route' => 'authors.index', 'text' => 'المؤلفون'],
+    ];
+
+    $authLinks = [
+        ['route' => 'books.create', 'text' => 'قم برفع كتابك'],
+        ['route' => 'profile.edit', 'text' => 'الملف الشخصي'],
+    ];
+
+    $guestLinks = [
+        ['route' => 'login', 'text' => 'تسجيل الدخول'],
+        ['route' => 'register', 'text' => 'إنشاء حساب'],
+    ];
+@endphp
+
 <!-- Navigation Component -->
 <nav id="mainNav" x-data="{ open: false }"
     class="fixed left-0 right-0 top-0 z-50 rounded-b-2xl border-primary-100 bg-white px-5 pb-2 transition-transform duration-300 dark:border-primary-700 dark:bg-primary-900 sm:pb-0 lg:px-44">
@@ -15,15 +34,6 @@
 
                 <!-- Desktop Navigation Links -->
                 <div class="hidden flex-1 justify-center gap-x-8 sm:-my-px sm:flex">
-                    @php
-                        $navigationLinks = [
-                            ['route' => 'home', 'text' => 'الرئيسية'],
-                            ['route' => 'books.index', 'text' => 'أشهر الكتب'],
-                            ['route' => 'dashboard', 'text' => 'الأقسام'],
-                            ['route' => 'authors.index', 'text' => 'المؤلفون'],
-                        ];
-                    @endphp
-
                     @foreach ($navigationLinks as $link)
                         <x-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
                             {{ $link['text'] }}
@@ -33,8 +43,13 @@
             </div>
 
             <!-- Right Side Navigation -->
-            <div class="hidden sm:ms-6 sm:flex sm:items-center">
+            <div class="hidden gap-3 sm:ms-6 sm:flex sm:items-center">
                 @auth
+                    <a href="{{ route('books.create') }}"
+                        class="rounded-md bg-primary-950 px-3 py-1.5 text-primary-500 hover:bg-primary-800 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+                        <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>
+                        قم برفع كتابك
+                    </a>
                     <!-- User Dropdown Menu -->
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -65,13 +80,14 @@
 
                 @guest
                     <div class="flex flex-row gap-x-3">
-                        <a href="{{ route('login') }}"
-                            class="rounded-lg border border-primary-400 px-4 py-1.5 text-primary-500 transition duration-150 ease-in-out hover:bg-primary-50 hover:text-primary-600 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900 dark:hover:text-primary-300">تسجيل
-                            الدخول</a>
-                        <a href="{{ route('register') }}"
-                            class="rounded-lg bg-primary-500 px-4 py-1.5 text-white transition duration-150 ease-in-out hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700">إنشاء
-                            حساب</a>
-                </div> @endguest
+                        @foreach ($guestLinks as $link)
+                            <a href="{{ route($link['route']) }}"
+                                class="{{ $loop->last ? 'bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700' : 'border border-primary-400 text-primary-500 hover:bg-primary-50 hover:text-primary-600 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900 dark:hover:text-primary-300' }} rounded-lg px-4 py-1.5 transition duration-150 ease-in-out">
+                                {{ $link['text'] }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endguest
             </div>
 
             <!-- Mobile Menu Button -->
@@ -105,10 +121,11 @@
 
         @guest
             <div class="space-y-1 pb-3 pt-2">
-                <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">تسجيل
-                    الدخول</x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">إنشاء
-                    حساب</x-responsive-nav-link>
+                @foreach ($guestLinks as $link)
+                    <x-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
+                        {{ $link['text'] }}
+                    </x-responsive-nav-link>
+                @endforeach
             </div>
         @endguest
 
@@ -121,7 +138,11 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">الملف الشخصي</x-responsive-nav-link>
+                    @foreach ($authLinks as $link)
+                        <x-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])">
+                            {{ $link['text'] }}
+                        </x-responsive-nav-link>
+                    @endforeach
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <x-responsive-nav-link :href="route('logout')"

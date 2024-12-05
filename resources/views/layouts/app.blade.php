@@ -17,7 +17,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-din-medium">
+<body class="font-din-medium bg-primary-100">
     @include('layouts.navigation')
     <!-- Page Content -->
     <main>
