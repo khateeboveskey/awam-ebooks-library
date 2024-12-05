@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'تعديل الملف الشخصي')
 
 @section('header')
     <h2 class="text-xl font-semibold leading-tight text-primary-800 dark:text-primary-200">

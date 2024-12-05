@@ -8,7 +8,7 @@
 
     $authLinks = [
         ['route' => 'books.create', 'text' => 'قم برفع كتابك'],
-        ['route' => 'profile.edit', 'text' => 'الملف الشخصي'],
+        ['route' => 'profile.show', 'text' => 'الملف الشخصي'],
     ];
 
     $guestLinks = [
