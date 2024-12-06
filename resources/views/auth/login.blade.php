@@ -43,5 +43,11 @@
                 تسجيل الدخول
             </x-primary-button>
         </div>
+
+        <div class="flex items-center justify-center mt-4">
+            <a class="underline text-sm text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 dark:focus:ring-offset-primary-800" href="{{ route('register') }}">
+                ليس لديك حساب؟ سجل الآن
+            </a>
+        </div>
     </form>
 </x-guest-layout>
