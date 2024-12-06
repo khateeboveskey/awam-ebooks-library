@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,14 @@ Route::group(['prefix' => '/books'], function () {
     Route::get('/{book}', [BookController::class, 'show'])->name('books.show');
 });
 
+Route::group(['prefix' => '/categories'], function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
+});
+
 Route::group(['prefix' => '/authors'], function () {
     Route::get('/', [AuthorController::class, 'index'])->name('authors.index');
-    Route::get('/{author}', [AuthorController::class, 'show'])->name('authors.show');
+    Route::get('/{slug}', [AuthorController::class, 'show'])->name('authors.show');
 });
 
 Route::get('/dashboard', function () {

@@ -12,9 +12,9 @@ class AuthorController extends Controller
         $authors = Author::all();
         return view('authors.index', compact('authors'));
     }
-
-    public function show(Author $author)
+    public function show($slug)
     {
+        $author = Author::where('slug', $slug)->firstOrFail();
         return view('authors.show', compact('author'));
     }
 }

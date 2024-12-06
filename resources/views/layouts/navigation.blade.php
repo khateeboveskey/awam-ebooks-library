@@ -2,7 +2,7 @@
     $navigationLinks = [
         ['route' => 'home', 'text' => 'الرئيسية'],
         ['route' => 'books.index', 'text' => 'أشهر الكتب'],
-        ['route' => 'dashboard', 'text' => 'الأقسام'],
+        ['route' => 'categories.index', 'text' => 'الأقسام'],
         ['route' => 'authors.index', 'text' => 'المؤلفون'],
     ];
 

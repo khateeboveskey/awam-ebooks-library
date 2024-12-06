@@ -9,13 +9,13 @@
             <div>
                 <h3 class="mb-4 font-din-bold text-lg">روابط سريعة</h3>
                 <ul class="space-y-2">
-                    <li><a href="#"
+                    <li><a href="{{ route('home') }}"
                             class="text-sm text-primary-400 transition hover:text-primary-500">الرئيسية</a>
                     </li>
                     <li><a href="{{ route('books.index') }}"
                             class="text-sm text-primary-400 transition hover:text-primary-500">أشهر
                             الكتب</a></li>
-                    <li><a href="#"
+                    <li><a href="{{ route('categories.index') }}"
                             class="text-sm text-primary-400 transition hover:text-primary-500">الأقسام</a>
                     </li>
                     <li><a href="{{ route('authors.index') }}"

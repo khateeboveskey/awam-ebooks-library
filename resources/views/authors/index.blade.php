@@ -12,7 +12,7 @@
         <div
             class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
             @foreach ($authors as $author)
-                <a href="{{ route('authors.show', $author) }}"
+                <a href="{{ route('authors.show', $author->slug) }}"
                     class="flex flex-col items-center rounded-lg bg-white p-4 transition duration-300 hover:bg-primary-50 hover:shadow-lg dark:bg-primary-800 dark:hover:bg-primary-700 sm:p-6">
                     <div class="mb-3 h-20 w-20 sm:mb-4 sm:h-28 sm:w-28 md:h-32 md:w-32">
                         <img src="https://ui-avatars.com/api/?name={{ urlencode($author->name) }}"

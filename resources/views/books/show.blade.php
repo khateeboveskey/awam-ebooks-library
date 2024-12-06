@@ -21,11 +21,18 @@
                                     <p class="text-lg text-gray-700">
                                         @foreach ($book->authors as $author)
                                             <a class="text-primary-600 hover:underline"
-                                                href="{{ route('authors.show', $author) }}">{{ $author->name }}</a>
+                                                href="{{ route('authors.show', $author->slug) }}">{{ $author->name }}</a>
                                             @if (!$loop->last)
                                                 {{ 'و' }}
                                             @endif
                                         @endforeach
+                                    </p>
+                                </div>
+                                <div class="rounded-lg bg-gray-50 p-4 transition-colors duration-200">
+                                    <h4 class="mb-2 text-xl font-semibold text-gray-900">التصنيف</h4>
+                                    <p class="text-lg text-gray-700">
+                                        <a class="text-primary-600 hover:underline"
+                                            href="{{ route('categories.show', $book->category) }}">{{ $book->category->name }}</a>
                                     </p>
                                 </div>
                                 <div class="rounded-lg bg-gray-50 p-4 transition-colors duration-200">

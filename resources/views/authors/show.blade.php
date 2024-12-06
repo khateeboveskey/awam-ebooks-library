@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $author->name)
+@section('title', 'كتب ' . $author->name)
 
 @section('content')
     <div class="py-6 sm:py-12">
