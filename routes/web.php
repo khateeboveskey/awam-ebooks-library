@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
@@ -31,9 +32,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware(['auth', IsAdmin::class])->name('admin.index');
+Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->group(function () {
+    Route::view('/', 'admin.index')->name('index');
+    Route::get('/books', [BookController::class, 'index'])->name('books.index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
