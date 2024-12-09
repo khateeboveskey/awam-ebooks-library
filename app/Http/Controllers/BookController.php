@@ -54,4 +54,9 @@ class BookController extends Controller
 
         return redirect()->route('books.show', $book)->with('success', 'تم إضافة الكتاب بنجاح');
     }
+
+    public function destroy(Book $book) {
+        $book->delete();
+        return redirect()->route('admin.books.index')->with('success', 'تم حذف الكتاب بنجاح');
+    }
 }
