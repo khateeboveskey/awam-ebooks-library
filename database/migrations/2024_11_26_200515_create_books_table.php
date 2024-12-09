@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('title');
             $table->longText('description')->nullable();
             $table->integer('year_published')->nullable();
+            $table->string('cover_image')->nullable();
             $table->foreignIdFor(Category::class)->constrained();
             $table->timestamps();
         });

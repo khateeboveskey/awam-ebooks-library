@@ -34,6 +34,7 @@ class BookController extends Controller
             'title' => 'required|max:255',
             'description' => 'nullable',
             'year_published' => 'required|integer|max:' . date('Y'),
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'author_id' => 'required|exists:authors,id',
             'category_id' => 'required|exists:categories,id'
         ]);
@@ -45,9 +46,12 @@ class BookController extends Controller
             'category_id' => $validated['category_id']
         ]);
 
+        $book->cover_image = $request->file('cover_image')->store('books', 'public');
+        $book->save();
+
         // for pivot table
         $book->authors()->attach($validated['author_id']);
 
-        return view('books.show', compact('book'));
+        return redirect()->route('books.show', $book)->with('success', 'تم إضافة الكتاب بنجاح');
     }
 }

@@ -3,7 +3,7 @@
 <div class="overflow-hidden rounded-lg border bg-white shadow transition-all hover:shadow-lg sm:max-w-sm">
     <a href="{{ route('books.show', $book) }}">
         <div class="aspect-w-2 aspect-h-3 bg-gray-200">
-            <img src="{{ asset('imgs/books-covers/' . $book->id . '.' . (file_exists(public_path('imgs/books-covers/' . $book->id . '.png')) ? 'png' : 'jpg')) }}"
+            <img src="{{ asset('storage/' . $book->cover_image) }}"
                 alt="{{ $book->title }}" class="h-full w-full object-cover">
         </div>
         <div class="p-3">

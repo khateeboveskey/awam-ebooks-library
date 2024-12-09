@@ -12,7 +12,7 @@
 
                     <div class="p-4 sm:p-6 lg:p-8">
                         <div class="grid w-fit grid-cols-1 gap-8 lg:grid-cols-2">
-                            <img src="{{ asset('imgs/books-covers/' . $book->id . '.' . (file_exists(public_path('imgs/books-covers/' . $book->id . '.png')) ? 'png' : 'jpg')) }}"
+                            <img src="{{ asset('storage/' . $book->cover_image) }}"
                                 alt="{{ $book->title }}"
                                 class="w-full transform rounded-xl object-cover transition-transform duration-300 md:w-64">
                             <div class="space-y-6">
