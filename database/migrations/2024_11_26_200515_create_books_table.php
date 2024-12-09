@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Author;
+use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,9 +16,16 @@ return new class extends Migration {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->integer('year_published');
-            $table->foreignIdFor(Category::class);
+            $table->longText('description')->nullable();
+            $table->integer('year_published')->nullable();
+            $table->foreignIdFor(Category::class)->constrained();
+            $table->timestamps();
+        });
+
+        Schema::create('author_book', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Author::class)->constrained();
+            $table->foreignIdFor(Book::class)->constrained();
             $table->timestamps();
         });
     }

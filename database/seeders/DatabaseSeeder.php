@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([AuthorSeeder::class, BookSeeder::class, AuthorBookSeeder::class, CategorySeeder::class]);
+        $this->call([AuthorSeeder::class, CategorySeeder::class, BookSeeder::class, AuthorBookSeeder::class]);
 
         User::factory()->create([
             'name' => 'عبدالرحمن الخطيب',
             'email' => 'khateeboveskey@gmail.com',
             'password' => Hash::make('Khateeb*404'),
+            'is_admin' => 1
         ]);
     }
 }

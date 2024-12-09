@@ -45,11 +45,19 @@
             <!-- Right Side Navigation -->
             <div class="hidden gap-3 sm:ms-6 sm:flex sm:items-center">
                 @auth
-                    <a href="{{ route('books.create') }}"
-                        class="rounded-md bg-primary-950 px-3 py-1.5 text-primary-500 hover:bg-primary-800 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
-                        <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>
-                        قم برفع كتابك
-                    </a>
+                    @admin
+                        <a href="{{ route('admin.index') }}"
+                            class="rounded-md bg-primary-950 px-3 py-1.5 text-primary-500 hover:bg-primary-800 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+                            <i class="fa-solid fa-border-all me-2"></i>
+                            لوحة المشرف
+                        </a>
+                    @else
+                        <a href="{{ route('books.create') }}"
+                            class="rounded-md bg-primary-950 px-3 py-1.5 text-primary-500 hover:bg-primary-800 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">
+                            <i class="fa-solid fa-arrow-up-from-bracket me-2"></i>
+                            قم برفع كتابك
+                        </a>
+                    @endadmin
                     <!-- User Dropdown Menu -->
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
